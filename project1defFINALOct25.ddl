@@ -26,6 +26,34 @@ DROP TABLE train CASCADE CONSTRAINTS;
 -- Drop train table and constraints 
 -- Drop tables to prevent duplicates 
 
+DROP SEQUENCE booking_uid_seq;
+-- DROP sequence for booking IDs
+
+DROP SEQUENCE operator_uid_seq;
+-- DROP sequence for operator IDs
+
+DROP SEQUENCE passenger_uid_seq;
+-- DROP sequence for passenger IDs
+
+DROP SEQUENCE route_uid_seq;
+-- DROP sequence for route IDs
+
+DROP SEQUENCE schedule_uid_seq;
+-- DROP sequence for schedule IDs
+
+DROP SEQUENCE station_uid_seq;
+-- DROP sequence for station IDs
+
+DROP SEQUENCE subscription_uid_seq;
+-- DROP sequence for subscription IDs
+
+DROP SEQUENCE timing_uid_seq;
+-- DROP sequence for timing IDs
+
+DROP SEQUENCE train_uid_seq;
+-- DROP sequence for train IDs
+-- Drop sequences to prevent duplicates 
+
 CREATE SEQUENCE booking_uid_seq START WITH 0 INCREMENT BY 1 MAXVALUE 9999999999 MINVALUE 0 NOCACHE;
 -- Create sequence for booking IDs
 
