@@ -54,31 +54,31 @@ DROP SEQUENCE train_uid_seq;
 -- DROP sequence for train IDs
 -- Drop sequences to prevent duplicates 
 
-CREATE SEQUENCE booking_uid_seq START WITH 0 INCREMENT BY 1 MAXVALUE 9999999999 MINVALUE 0 NOCACHE;
+CREATE SEQUENCE booking_uid_seq START WITH 1 INCREMENT BY 1 MAXVALUE 9999999999 MINVALUE 1 NOCACHE;
 -- Create sequence for booking IDs
 
-CREATE SEQUENCE operator_uid_seq START WITH 0 INCREMENT BY 1 MAXVALUE 9999999999 MINVALUE 0 NOCACHE;
+CREATE SEQUENCE operator_uid_seq START WITH 1 INCREMENT BY 1 MAXVALUE 9999999999 MINVALUE 1 NOCACHE;
 -- Create sequence for operator IDs
 
-CREATE SEQUENCE passenger_uid_seq START WITH 0 INCREMENT BY 1 MAXVALUE 9999999999 MINVALUE 0 NOCACHE;
+CREATE SEQUENCE passenger_uid_seq START WITH 1 INCREMENT BY 1 MAXVALUE 9999999999 MINVALUE 1 NOCACHE;
 -- Create sequence for passenger IDs
 
-CREATE SEQUENCE route_uid_seq START WITH 0 INCREMENT BY 1 MAXVALUE 9999999999 MINVALUE 0 NOCACHE;
+CREATE SEQUENCE route_uid_seq START WITH 1 INCREMENT BY 1 MAXVALUE 9999999999 MINVALUE 1 NOCACHE;
 -- Create sequence for route IDs
 
-CREATE SEQUENCE schedule_uid_seq START WITH 0 INCREMENT BY 1 MAXVALUE 9999999999 MINVALUE 0 NOCACHE;
+CREATE SEQUENCE schedule_uid_seq START WITH 1 INCREMENT BY 1 MAXVALUE 9999999999 MINVALUE 1 NOCACHE;
 -- Create sequence for schedule IDs
 
-CREATE SEQUENCE station_uid_seq START WITH 0 INCREMENT BY 1 MAXVALUE 9999999999 MINVALUE 0 NOCACHE;
+CREATE SEQUENCE station_uid_seq START WITH 1 INCREMENT BY 1 MAXVALUE 9999999999 MINVALUE 1 NOCACHE;
 -- Create sequence for station IDs
 
-CREATE SEQUENCE subscription_uid_seq START WITH 0 INCREMENT BY 1 MAXVALUE 9999999999 MINVALUE 0 NOCACHE;
+CREATE SEQUENCE subscription_uid_seq START WITH 1 INCREMENT BY 1 MAXVALUE 9999999999 MINVALUE 1 NOCACHE;
 -- Create sequence for subscription IDs
 
-CREATE SEQUENCE timing_uid_seq START WITH 0 INCREMENT BY 1 MAXVALUE 9999999999 MINVALUE 0 NOCACHE;
+CREATE SEQUENCE timing_uid_seq START WITH 1 INCREMENT BY 1 MAXVALUE 9999999999 MINVALUE 1 NOCACHE;
 -- Create sequence for timing IDs
 
-CREATE SEQUENCE train_uid_seq START WITH 0 INCREMENT BY 1 MAXVALUE 9999999999 MINVALUE 0 NOCACHE;
+CREATE SEQUENCE train_uid_seq START WITH 1 INCREMENT BY 1 MAXVALUE 9999999999 MINVALUE 1 NOCACHE;
 -- Create sequence for train IDs
 -- Sequences start at seq = 0 and increment by 1 to a maximum value of 9999999999, NOCACHE indicates values in sequence are not preallocated
 
@@ -268,4 +268,41 @@ INSERT INTO timing VALUES (
     TIMING_UID_SEQ.nextval,
     TO_DATE('12/12/1212 08:15:00 PM','DD/MM/YYYY HH:MI:SS PM'),
     TO_DATE('12/12/1212 10:30:00 PM','DD/MM/YYYY HH:MI:SS PM')
+);
+
+INSERT INTO subscription VALUES (
+    SUBSCRIPTION_UID_SEQ.nextval,
+    'Base Level Membership: at least 5 trips required',
+    'Standard',
+    10.00,
+    10000
+);
+
+INSERT INTO subscription VALUES (
+    SUBSCRIPTION_UID_SEQ.nextval,
+    'Level 1 Membership: at least 10 trips required',
+    'Bronze',
+    20.00,
+    8000
+);
+INSERT INTO subscription VALUES (
+    SUBSCRIPTION_UID_SEQ.nextval,
+    'Level 2 Membership: at least 20 trips required',
+    'Silver',
+    30.00,
+    5000
+);
+INSERT INTO subscription VALUES (
+    SUBSCRIPTION_UID_SEQ.nextval,
+    'Level 3 Membership: at least 30 trips required',
+    'Gold',
+    40.00,
+    3000
+);
+INSERT INTO subscription VALUES (
+    SUBSCRIPTION_UID_SEQ.nextval,
+    'Level 4 Membership: at least 35 trips required',
+    'Diamond',
+    45.00,
+    2000
 );
