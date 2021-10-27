@@ -149,7 +149,7 @@ CREATE TABLE subscription (
         CONSTRAINT subscription_rank_nn NOT NULL,
     subscriptionfees           NUMBER(4, 2)
         CONSTRAINT subscription_fees_nn NOT NULL,
-    subscriptionpointsfree     NUMBER(3)
+    subscriptionpointsfree     NUMBER(5)
         CONSTRAINT subscription_points_booking_nn NOT NULL
 );
 
