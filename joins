@@ -1,0 +1,155 @@
+-- Here's the SQL. We can merge with the main project once it's complete 
+
+-- Level 1 tables 
+-- timing, train, subscription, station, operator
+-- Level 2 tables
+-- booking, passenger, route
+--Level 3 tables
+-- schedule
+
+-- train insertions 
+INSERT INTO train
+VALUES(
+    TRAIN_UID_SEQ.nextval,
+    'Golden Arrow',
+    'Pullman',
+    100
+);
+
+INSERT INTO train
+VALUES(
+    TRAIN_UID_SEQ.nextval,
+    'Flying Scotsman',
+    'Pacific steam locomotive',
+    50
+);
+
+INSERT INTO train
+VALUES(
+    TRAIN_UID_SEQ.nextval,
+    'Orient Express',
+    'Long-distance passenger',
+    350
+);
+
+INSERT INTO train
+VALUES(
+    TRAIN_UID_SEQ.nextval,
+    'JR Yamanote',
+    'Maglev',
+    350
+);
+
+INSERT INTO train
+VALUES(
+    TRAIN_UID_SEQ.nextval,
+    'TGV',
+    'High-Speed Rail',
+    485
+);
+-- end train insertions
+
+-- station insertions
+INSERT INTO station
+VALUES(
+    STATION_UID_SEQ.nextval,
+    'Tulsa station',
+    'Tulsa',
+    'OK',
+    'S. Detroit Ave',
+    '(918) 584-4428'
+);
+
+INSERT INTO station
+VALUES(
+    STATION_UID_SEQ.nextval,
+    'Grand Central Terminal',
+    'New York City',
+    'NY',
+    'E. 42nd St.',
+    '(212) 340-2583'
+);
+
+INSERT INTO station
+VALUES(
+    STATION_UID_SEQ.nextval,
+    'Caltrain station',
+    'San Francisco',
+    'CA',
+    '4th St.',
+    '(800) 660-4287'
+);
+
+INSERT INTO station
+VALUES(
+    STATION_UID_SEQ.nextval,
+    'Columbus Union Station',
+    'Columbus',
+    'OH',
+    'N. High St.',
+    '(614) 262-9056'
+);
+
+INSERT INTO station
+VALUES(
+    STATION_UID_SEQ.nextval,
+    'Peachtree Station',
+    'Atlanta',
+    'GA',
+    'Peachtree Rd. NW',
+    '(800) 872-7245'
+);
+-- end station insertions
+
+-- operator insertions 
+
+INSERT INTO operator
+VALUES(
+    OPERATOR_UID_SEQ.nextval,
+    'Trevor',
+    'Potter',
+    TO_DATE('1/1/1985', 'MM/DD/YY'),
+    'tpotter85@gmail.com',
+    ''
+);
+
+INSERT INTO operator
+VALUES(
+    OPERATOR_UID_SEQ.nextval,
+    'Noah',
+    'Brady',
+    TO_DATE('2/4/1995', 'MM/DD/YY'),
+    'bradynoah95@outlook.com',
+    ''
+);
+
+INSERT INTO operator
+VALUES(
+    OPERATOR_UID_SEQ.nextval,
+    'Stephen',
+    'Long',
+    TO_DATE('4/8/2003', 'MM/DD/YY'),
+    'long003@yahoo.com',
+    ''
+);
+
+INSERT INTO operator
+VALUES(
+    OPERATOR_UID_SEQ.nextval,
+    'John',
+    'Harris',
+    TO_DATE('10/31/1974', 'MM/DD/YY'),
+    'jharris74@gmail.com',
+    ''
+);
+
+INSERT INTO operator
+VALUES(
+    OPERATOR_UID_SEQ.nextval,
+    'Stewart',
+    'Connor',
+    TO_DATE('12/15/1980', 'MM/DD/YY'),
+    'stewconnor1980@yahoo.com',
+    ''
+);
+-- end operator insertions
