@@ -245,26 +245,31 @@ INSERT INTO timing VALUES (
     TO_DATE('12/12/1212 09:30:00 AM','DD/MM/YYYY HH:MI:SS AM'),
     TO_DATE('12/12/1212 12:30:00 PM','DD/MM/YYYY HH:MI:SS PM')
 );
+COMMIT;
 INSERT INTO timing VALUES (
     TIMING_UID_SEQ.nextval,
     TO_DATE('12/12/1212 12:30:00 PM','DD/MM/YYYY HH:MI:SS PM'),
     TO_DATE('12/12/1212 2:15:00 PM','DD/MM/YYYY HH:MI:SS PM')
 );
+COMMIT;
 INSERT INTO timing VALUES (
     TIMING_UID_SEQ.nextval,
     TO_DATE('12/12/1212 10:30:00 AM','DD/MM/YYYY HH:MI:SS AM'),
     TO_DATE('12/12/1212 3:30:00 PM','DD/MM/YYYY HH:MI:SS PM')
 );
+COMMIT;
 INSERT INTO timing VALUES (
     TIMING_UID_SEQ.nextval,
     TO_DATE('12/12/1212 02:30:00 PM','DD/MM/YYYY HH:MI:SS PM'),
     TO_DATE('12/12/1212 06:30:00 PM','DD/MM/YYYY HH:MI:SS PM')
 );
+COMMIT;
 INSERT INTO timing VALUES (
     TIMING_UID_SEQ.nextval,
     TO_DATE('12/12/1212 08:15:00 PM','DD/MM/YYYY HH:MI:SS PM'),
     TO_DATE('12/12/1212 10:30:00 PM','DD/MM/YYYY HH:MI:SS PM')
 );
+COMMIT;
 
 INSERT INTO subscription VALUES (
     SUBSCRIPTION_UID_SEQ.nextval,
@@ -273,6 +278,7 @@ INSERT INTO subscription VALUES (
     10.00,
     10000
 );
+COMMIT;
 INSERT INTO subscription VALUES (
     SUBSCRIPTION_UID_SEQ.nextval,
     'Level 1 Membership: at least 10 trips required',
@@ -280,6 +286,7 @@ INSERT INTO subscription VALUES (
     20.00,
     8000
 );
+COMMIT;
 INSERT INTO subscription VALUES (
     SUBSCRIPTION_UID_SEQ.nextval,
     'Level 2 Membership: at least 20 trips required',
@@ -287,6 +294,7 @@ INSERT INTO subscription VALUES (
     30.00,
     5000
 );
+COMMIT;
 INSERT INTO subscription VALUES (
     SUBSCRIPTION_UID_SEQ.nextval,
     'Level 3 Membership: at least 30 trips required',
@@ -294,6 +302,7 @@ INSERT INTO subscription VALUES (
     40.00,
     3000
 );
+COMMIT;
 INSERT INTO subscription VALUES (
     SUBSCRIPTION_UID_SEQ.nextval,
     'Level 4 Membership: at least 35 trips required',
@@ -301,3 +310,4 @@ INSERT INTO subscription VALUES (
     45.00,
     2000
 );
+COMMIT;
