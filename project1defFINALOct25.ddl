@@ -239,3 +239,33 @@ ALTER TABLE schedule ADD CONSTRAINT schedule_operator_fk FOREIGN KEY (operatorid
 ALTER TABLE route ADD CONSTRAINT route_station_fkv2 FOREIGN KEY (departurestationid) REFERENCES station(stationid);
 ALTER TABLE route ADD CONSTRAINT route_station_fk FOREIGN KEY (arrivalstationid) REFERENCES station(stationid);
 ALTER TABLE passenger ADD CONSTRAINT passenger_subscription_fk FOREIGN KEY (subscriptionid) REFERENCES subscription(subscriptionid);
+
+INSERT INTO timing VALUES (
+    TIMING_UID_SEQ.nextval,
+    TO_DATE('12/12/1212 09:30:00 AM','DD/MM/YYYY HH:MI:SS AM'),
+    TO_DATE('12/12/1212 12:30:00 PM','DD/MM/YYYY HH:MI:SS PM')
+);
+
+INSERT INTO timing VALUES (
+    TIMING_UID_SEQ.nextval,
+    TO_DATE('12/12/1212 12:30:00 PM','DD/MM/YYYY HH:MI:SS PM'),
+    TO_DATE('12/12/1212 2:15:00 PM','DD/MM/YYYY HH:MI:SS PM')
+);
+
+INSERT INTO timing VALUES (
+    TIMING_UID_SEQ.nextval,
+    TO_DATE('12/12/1212 10:30:00 AM','DD/MM/YYYY HH:MI:SS AM'),
+    TO_DATE('12/12/1212 3:30:00 PM','DD/MM/YYYY HH:MI:SS PM')
+);
+
+INSERT INTO timing VALUES (
+    TIMING_UID_SEQ.nextval,
+    TO_DATE('12/12/1212 02:30:00 PM','DD/MM/YYYY HH:MI:SS PM'),
+    TO_DATE('12/12/1212 06:30:00 PM','DD/MM/YYYY HH:MI:SS PM')
+);
+
+INSERT INTO timing VALUES (
+    TIMING_UID_SEQ.nextval,
+    TO_DATE('12/12/1212 08:15:00 PM','DD/MM/YYYY HH:MI:SS PM'),
+    TO_DATE('12/12/1212 10:30:00 PM','DD/MM/YYYY HH:MI:SS PM')
+);
