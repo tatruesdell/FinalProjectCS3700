@@ -194,7 +194,8 @@ CREATE TABLE route (
 		CONSTRAINT arrival_station_id_nn NOT NULL,
     departurestationid NUMBER(10) 
 		CONSTRAINT departure_station_id_nn NOT NULL,
-    CONSTRAINT route_arrival_departure_unique UNIQUE(arrivalstationid, departurestationid)
+    CONSTRAINT route_arrival_departure_uk UNIQUE(arrivalstationid, departurestationid),
+    CONSTRAINT route_arrival_depature_cc CHECK(arrivalstationid <> departurestationid)
 );
 
 -- Create schedule table 
@@ -213,7 +214,9 @@ CREATE TABLE schedule (
     routeid           NUMBER(10) 
 		CONSTRAINT schedule_route_id_nn NOT NULL,
     timingid          NUMBER(10) 
-		CONSTRAINT schedule_timing_id_nn NOT NULL
+		CONSTRAINT schedule_timing_id_nn NOT NULL,
+    CONSTRAINT operator_timing_date_uk UNIQUE(operatorid, timingid, schedulestartdate),
+    CONSTRAINT train_timing_date_uk UNIQUE(trainid, timingid, schedulestartdate)
 );
 
 -- Create booking table 
@@ -312,40 +315,35 @@ INSERT INTO subscription VALUES (
 );
 COMMIT;
 
-INSERT INTO train
-VALUES(
+INSERT INTO train VALUES(
     TRAIN_UID_SEQ.nextval,
     'Golden Arrow',
     'Pullman',
     100
 );
 COMMIT;
-INSERT INTO train
-VALUES(
+INSERT INTO train VALUES(
     TRAIN_UID_SEQ.nextval,
     'Flying Scotsman',
     'Pacific steam locomotive',
     50
 );
 COMMIT;
-INSERT INTO train
-VALUES(
+INSERT INTO train VALUES(
     TRAIN_UID_SEQ.nextval,
     'Orient Express',
     'Long-distance passenger',
     350
 );
 COMMIT;
-INSERT INTO train
-VALUES(
+INSERT INTO train VALUES(
     TRAIN_UID_SEQ.nextval,
     'JR Yamanote',
     'Maglev',
     350
 );
 
-INSERT INTO train
-VALUES(
+INSERT INTO train VALUES(
     TRAIN_UID_SEQ.nextval,
     'TGV',
     'High-Speed Rail',
@@ -353,8 +351,7 @@ VALUES(
 );
 COMMIT;
 
-INSERT INTO station
-VALUES(
+INSERT INTO station VALUES(
     STATION_UID_SEQ.nextval,
     'Tulsa station',
     'Tulsa',
@@ -363,8 +360,7 @@ VALUES(
     '9185844428'
 );
 COMMIT;
-INSERT INTO station
-VALUES(
+INSERT INTO station VALUES(
     STATION_UID_SEQ.nextval,
     'Grand Central Terminal',
     'New York City',
@@ -383,8 +379,7 @@ VALUES(
     '8006604287'
 );
 COMMIT;
-INSERT INTO station
-VALUES(
+INSERT INTO station VALUES(
     STATION_UID_SEQ.nextval,
     'Columbus Union Station',
     'Columbus',
@@ -393,8 +388,7 @@ VALUES(
     '6142629056'
 );
 COMMIT;
-INSERT INTO station
-VALUES(
+INSERT INTO station VALUES(
     STATION_UID_SEQ.nextval,
     'Peachtree Station',
     'Atlanta',
@@ -404,8 +398,7 @@ VALUES(
 );
 COMMIT;
 
-INSERT INTO operator
-VALUES(
+INSERT INTO operator VALUES(
     OPERATOR_UID_SEQ.nextval,
     'Trevor',
     'Potter',
@@ -414,8 +407,7 @@ VALUES(
     '9035101352'
 );
 COMMIT;
-INSERT INTO operator
-VALUES(
+INSERT INTO operator VALUES(
     OPERATOR_UID_SEQ.nextval,
     'Noah',
     'Brady',
@@ -424,8 +416,7 @@ VALUES(
     '5174179638'
 );
 COMMIT;
-INSERT INTO operator
-VALUES(
+INSERT INTO operator VALUES(
     OPERATOR_UID_SEQ.nextval,
     'Stephen',
     'Long',
@@ -434,8 +425,7 @@ VALUES(
     '7243799580'
 );
 COMMIT;
-INSERT INTO operator
-VALUES(
+INSERT INTO operator VALUES(
     OPERATOR_UID_SEQ.nextval,
     'John',
     'Harris',
@@ -444,13 +434,150 @@ VALUES(
     '3022243085'
 );
 COMMIT;
-INSERT INTO operator
-VALUES(
+INSERT INTO operator VALUES(
     OPERATOR_UID_SEQ.nextval,
     'Stewart',
     'Connor',
     TO_DATE('12/15/1980', 'MM/DD/YY'),
     'stewconnor1980@yahoo.com',
     '2603766308'
+);
+COMMIT;
+
+INSERT INTO passenger VALUES (
+    PASSENGER_UID_SEQ.nextval,
+    'Joe',
+    'Biden',
+    '9379998888',
+    'biden.joe@whitehouse.gov',
+    460,
+    5
+);
+COMMIT;
+
+INSERT INTO passenger VALUES (
+    PASSENGER_UID_SEQ.nextval,
+    'Seymore',
+    'Sayless',
+    '3602562452',
+    'moreorless@outlook.com',
+    895,
+    3
+);
+COMMIT;
+
+INSERT INTO passenger VALUES (
+    PASSENGER_UID_SEQ.nextval,
+    'Tracy',
+    'Vann',
+    '5131138979',
+    'tracecar@yahoo.com',
+    2000,
+    2
+);
+COMMIT;
+
+INSERT INTO passenger VALUES (
+    PASSENGER_UID_SEQ.nextval,
+    'Bill',
+    'Boebert',
+    '2162299888',
+    'bobill@gmail.com',
+    230,
+    3
+);
+COMMIT;
+
+INSERT INTO passenger VALUES (
+    PASSENGER_UID_SEQ.nextval,
+    'Joey',
+    'Slumber',
+    '9378885555',
+    'joeslumber@wright.edu',
+    0,
+    NULL
+);
+COMMIT;
+
+INSERT INTO route VALUES (
+    ROUTE_UID_SEQ.nextval,
+    4,
+    2
+);
+COMMIT;
+
+INSERT INTO route VALUES (
+    ROUTE_UID_SEQ.nextval,
+    2,
+    4
+);
+COMMIT;
+
+INSERT INTO route VALUES (
+    ROUTE_UID_SEQ.nextval,
+    3,
+    5
+);
+COMMIT;
+INSERT INTO route VALUES (
+    ROUTE_UID_SEQ.nextval,
+    5,
+    3
+);
+COMMIT;
+INSERT INTO route VALUES (
+    ROUTE_UID_SEQ.nextval,
+    5,
+    4
+);
+COMMIT;
+
+INSERT INTO schedule VALUES (
+    SCHEDULE_UID_SEQ.nextval,
+    TO_DATE('08/10/2022', 'MM/DD/YYYY'),
+    2,
+    5,
+    2,
+    1
+);
+COMMIT;
+
+INSERT INTO schedule VALUES (
+    SCHEDULE_UID_SEQ.nextval,
+    TO_DATE('08/12/2022', 'MM/DD/YYYY'),
+    4,
+    2,
+    1,
+    3
+);
+COMMIT;
+
+INSERT INTO schedule VALUES (
+    SCHEDULE_UID_SEQ.nextval,
+    TO_DATE('08/11/2022', 'MM/DD/YYYY'),
+    3,
+    3,
+    2,
+    1
+);
+COMMIT;
+
+INSERT INTO schedule VALUES (
+    SCHEDULE_UID_SEQ.nextval,
+    TO_DATE('08/16/2022', 'MM/DD/YYYY'),
+    5,
+    5,
+    5,
+    5
+);
+COMMIT;
+
+INSERT INTO schedule VALUES (
+    SCHEDULE_UID_SEQ.nextval,
+    TO_DATE('09/15/2022', 'MM/DD/YYYY'),
+    2,
+    4,
+    4,
+    2
 );
 COMMIT;
