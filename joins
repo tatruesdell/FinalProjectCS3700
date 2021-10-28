@@ -57,7 +57,7 @@ VALUES(
     'Tulsa',
     'OK',
     'S. Detroit Ave',
-    '(918) 584-4428'
+    '9185844428'
 );
 
 INSERT INTO station
@@ -67,7 +67,7 @@ VALUES(
     'New York City',
     'NY',
     'E. 42nd St.',
-    '(212) 340-2583'
+    '2123402583'
 );
 
 INSERT INTO station
@@ -77,7 +77,7 @@ VALUES(
     'San Francisco',
     'CA',
     '4th St.',
-    '(800) 660-4287'
+    '8006604287'
 );
 
 INSERT INTO station
@@ -87,7 +87,7 @@ VALUES(
     'Columbus',
     'OH',
     'N. High St.',
-    '(614) 262-9056'
+    '6142629056'
 );
 
 INSERT INTO station
@@ -97,7 +97,7 @@ VALUES(
     'Atlanta',
     'GA',
     'Peachtree Rd. NW',
-    '(800) 872-7245'
+    '8008727245'
 );
 -- end station insertions
 
@@ -110,7 +110,7 @@ VALUES(
     'Potter',
     TO_DATE('1/1/1985', 'MM/DD/YY'),
     'tpotter85@gmail.com',
-    ''
+    '9035101352'
 );
 
 INSERT INTO operator
@@ -120,7 +120,7 @@ VALUES(
     'Brady',
     TO_DATE('2/4/1995', 'MM/DD/YY'),
     'bradynoah95@outlook.com',
-    ''
+    '5174179638'
 );
 
 INSERT INTO operator
@@ -130,7 +130,7 @@ VALUES(
     'Long',
     TO_DATE('4/8/2003', 'MM/DD/YY'),
     'long003@yahoo.com',
-    ''
+    '7243799580'
 );
 
 INSERT INTO operator
@@ -140,7 +140,7 @@ VALUES(
     'Harris',
     TO_DATE('10/31/1974', 'MM/DD/YY'),
     'jharris74@gmail.com',
-    ''
+    '3022243085'
 );
 
 INSERT INTO operator
@@ -150,6 +150,6 @@ VALUES(
     'Connor',
     TO_DATE('12/15/1980', 'MM/DD/YY'),
     'stewconnor1980@yahoo.com',
-    ''
+    '2603766308'
 );
 -- end operator insertions
