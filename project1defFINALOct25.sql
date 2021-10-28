@@ -92,9 +92,9 @@ CREATE TABLE train (
         CONSTRAINT train_pk PRIMARY KEY,
     trainname      VARCHAR2(20 CHAR)
         CONSTRAINT train_name_nn NOT NULL,
-    trainmodel     VARCHAR2(10 CHAR)
+    trainmodel     VARCHAR2(50 CHAR)
         CONSTRAINT train_model_nn NOT NULL,
-    trainnoofseats NUMBER(2)
+    trainnoofseats NUMBER(3)
         CONSTRAINT train_seats_nn NOT NULL
 );
 
@@ -105,9 +105,9 @@ CREATE TABLE train (
 CREATE TABLE station (
     stationid          NUMBER(10)
         CONSTRAINT station_pk PRIMARY KEY,
-    stationname        VARCHAR2(20 CHAR)
+    stationname        VARCHAR2(35 CHAR)
         CONSTRAINT station_name_nn NOT NULL,
-    stationcity        VARCHAR2(10 CHAR)
+    stationcity        VARCHAR2(20 CHAR)
         CONSTRAINT station_city_nn NOT NULL,
     stationstate       CHAR(2 CHAR)
         CONSTRAINT station_state_nn NOT NULL,
@@ -130,7 +130,7 @@ CREATE TABLE operator (
         CONSTRAINT operator_last_name_nn NOT NULL,
     operatordob         DATE
         CONSTRAINT operator_dob_nn NOT NULL,
-    operatoremail       VARCHAR2(20 CHAR)
+    operatoremail       VARCHAR2(30 CHAR)
         CONSTRAINT operator_email_nn NOT NULL,
     operatorphonenumber NUMBER(10)
         CONSTRAINT operator_phone_number_nn NOT NULL
@@ -309,5 +309,148 @@ INSERT INTO subscription VALUES (
     'Diamond',
     45.00,
     2000
+);
+COMMIT;
+
+INSERT INTO train
+VALUES(
+    TRAIN_UID_SEQ.nextval,
+    'Golden Arrow',
+    'Pullman',
+    100
+);
+COMMIT;
+INSERT INTO train
+VALUES(
+    TRAIN_UID_SEQ.nextval,
+    'Flying Scotsman',
+    'Pacific steam locomotive',
+    50
+);
+COMMIT;
+INSERT INTO train
+VALUES(
+    TRAIN_UID_SEQ.nextval,
+    'Orient Express',
+    'Long-distance passenger',
+    350
+);
+COMMIT;
+INSERT INTO train
+VALUES(
+    TRAIN_UID_SEQ.nextval,
+    'JR Yamanote',
+    'Maglev',
+    350
+);
+
+INSERT INTO train
+VALUES(
+    TRAIN_UID_SEQ.nextval,
+    'TGV',
+    'High-Speed Rail',
+    485
+);
+COMMIT;
+
+INSERT INTO station
+VALUES(
+    STATION_UID_SEQ.nextval,
+    'Tulsa station',
+    'Tulsa',
+    'OK',
+    'S. Detroit Ave',
+    '9185844428'
+);
+COMMIT;
+INSERT INTO station
+VALUES(
+    STATION_UID_SEQ.nextval,
+    'Grand Central Terminal',
+    'New York City',
+    'NY',
+    'E. 42nd St.',
+    '2123402583'
+);
+COMMIT;
+INSERT INTO station
+VALUES(
+    STATION_UID_SEQ.nextval,
+    'Caltrain station',
+    'San Francisco',
+    'CA',
+    '4th St.',
+    '8006604287'
+);
+COMMIT;
+INSERT INTO station
+VALUES(
+    STATION_UID_SEQ.nextval,
+    'Columbus Union Station',
+    'Columbus',
+    'OH',
+    'N. High St.',
+    '6142629056'
+);
+COMMIT;
+INSERT INTO station
+VALUES(
+    STATION_UID_SEQ.nextval,
+    'Peachtree Station',
+    'Atlanta',
+    'GA',
+    'Peachtree Rd. NW',
+    '8008727245'
+);
+COMMIT;
+
+INSERT INTO operator
+VALUES(
+    OPERATOR_UID_SEQ.nextval,
+    'Trevor',
+    'Potter',
+    TO_DATE('1/1/1985', 'MM/DD/YY'),
+    'tpotter85@gmail.com',
+    '9035101352'
+);
+COMMIT;
+INSERT INTO operator
+VALUES(
+    OPERATOR_UID_SEQ.nextval,
+    'Noah',
+    'Brady',
+    TO_DATE('2/4/1995', 'MM/DD/YY'),
+    'bradynoah95@outlook.com',
+    '5174179638'
+);
+COMMIT;
+INSERT INTO operator
+VALUES(
+    OPERATOR_UID_SEQ.nextval,
+    'Stephen',
+    'Long',
+    TO_DATE('4/8/2003', 'MM/DD/YY'),
+    'long003@yahoo.com',
+    '7243799580'
+);
+COMMIT;
+INSERT INTO operator
+VALUES(
+    OPERATOR_UID_SEQ.nextval,
+    'John',
+    'Harris',
+    TO_DATE('10/31/1974', 'MM/DD/YY'),
+    'jharris74@gmail.com',
+    '3022243085'
+);
+COMMIT;
+INSERT INTO operator
+VALUES(
+    OPERATOR_UID_SEQ.nextval,
+    'Stewart',
+    'Connor',
+    TO_DATE('12/15/1980', 'MM/DD/YY'),
+    'stewconnor1980@yahoo.com',
+    '2603766308'
 );
 COMMIT;
