@@ -581,3 +581,34 @@ INSERT INTO schedule VALUES (
     2
 );
 COMMIT;
+
+INSERT INTO booking VALUES(
+	BOOKING_UID_SEQ.nextval,
+	1,
+	4
+);
+COMMIT;
+INSERT INTO booking VALUES(
+	BOOKING_UID_SEQ.nextval,
+	1,
+	4
+);
+COMMIT;
+INSERT INTO booking VALUES(
+	BOOKING_UID_SEQ.nextval,
+	3,
+	5
+);
+COMMIT;
+INSERT INTO booking VALUES(
+	BOOKING_UID_SEQ.nextval,
+	2,
+	4
+);
+COMMIT;
+INSERT INTO booking VALUES(
+	BOOKING_UID_SEQ.nextval,
+	2,
+	3
+);
+COMMIT;
