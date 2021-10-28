@@ -248,31 +248,31 @@ INSERT INTO timing VALUES (
     TO_DATE('12/12/1212 09:30:00 AM','DD/MM/YYYY HH:MI:SS AM'),
     TO_DATE('12/12/1212 12:30:00 PM','DD/MM/YYYY HH:MI:SS PM')
 );
-COMMIT;
+
 INSERT INTO timing VALUES (
     TIMING_UID_SEQ.nextval,
     TO_DATE('12/12/1212 12:30:00 PM','DD/MM/YYYY HH:MI:SS PM'),
     TO_DATE('12/12/1212 2:15:00 PM','DD/MM/YYYY HH:MI:SS PM')
 );
-COMMIT;
+
 INSERT INTO timing VALUES (
     TIMING_UID_SEQ.nextval,
     TO_DATE('12/12/1212 10:30:00 AM','DD/MM/YYYY HH:MI:SS AM'),
     TO_DATE('12/12/1212 3:30:00 PM','DD/MM/YYYY HH:MI:SS PM')
 );
-COMMIT;
+
 INSERT INTO timing VALUES (
     TIMING_UID_SEQ.nextval,
     TO_DATE('12/12/1212 02:30:00 PM','DD/MM/YYYY HH:MI:SS PM'),
     TO_DATE('12/12/1212 06:30:00 PM','DD/MM/YYYY HH:MI:SS PM')
 );
-COMMIT;
+
 INSERT INTO timing VALUES (
     TIMING_UID_SEQ.nextval,
     TO_DATE('12/12/1212 08:15:00 PM','DD/MM/YYYY HH:MI:SS PM'),
     TO_DATE('12/12/1212 10:30:00 PM','DD/MM/YYYY HH:MI:SS PM')
 );
-COMMIT;
+
 
 INSERT INTO subscription VALUES (
     SUBSCRIPTION_UID_SEQ.nextval,
@@ -281,7 +281,7 @@ INSERT INTO subscription VALUES (
     10.00,
     10000
 );
-COMMIT;
+
 INSERT INTO subscription VALUES (
     SUBSCRIPTION_UID_SEQ.nextval,
     'Level 1 Membership: at least 10 trips required',
@@ -289,7 +289,7 @@ INSERT INTO subscription VALUES (
     20.00,
     8000
 );
-COMMIT;
+
 INSERT INTO subscription VALUES (
     SUBSCRIPTION_UID_SEQ.nextval,
     'Level 2 Membership: at least 20 trips required',
@@ -297,7 +297,7 @@ INSERT INTO subscription VALUES (
     30.00,
     5000
 );
-COMMIT;
+
 INSERT INTO subscription VALUES (
     SUBSCRIPTION_UID_SEQ.nextval,
     'Level 3 Membership: at least 30 trips required',
@@ -305,7 +305,7 @@ INSERT INTO subscription VALUES (
     40.00,
     3000
 );
-COMMIT;
+
 INSERT INTO subscription VALUES (
     SUBSCRIPTION_UID_SEQ.nextval,
     'Level 4 Membership: at least 35 trips required',
@@ -313,7 +313,7 @@ INSERT INTO subscription VALUES (
     45.00,
     2000
 );
-COMMIT;
+
 
 INSERT INTO train VALUES(
     TRAIN_UID_SEQ.nextval,
@@ -321,21 +321,21 @@ INSERT INTO train VALUES(
     'Pullman',
     100
 );
-COMMIT;
+
 INSERT INTO train VALUES(
     TRAIN_UID_SEQ.nextval,
     'Flying Scotsman',
     'Pacific steam locomotive',
     50
 );
-COMMIT;
+
 INSERT INTO train VALUES(
     TRAIN_UID_SEQ.nextval,
     'Orient Express',
     'Long-distance passenger',
     350
 );
-COMMIT;
+
 INSERT INTO train VALUES(
     TRAIN_UID_SEQ.nextval,
     'JR Yamanote',
@@ -349,7 +349,7 @@ INSERT INTO train VALUES(
     'High-Speed Rail',
     485
 );
-COMMIT;
+
 
 INSERT INTO station VALUES(
     STATION_UID_SEQ.nextval,
@@ -359,7 +359,7 @@ INSERT INTO station VALUES(
     'S. Detroit Ave',
     '9185844428'
 );
-COMMIT;
+
 INSERT INTO station VALUES(
     STATION_UID_SEQ.nextval,
     'Grand Central Terminal',
@@ -368,7 +368,7 @@ INSERT INTO station VALUES(
     'E. 42nd St.',
     '2123402583'
 );
-COMMIT;
+
 INSERT INTO station
 VALUES(
     STATION_UID_SEQ.nextval,
@@ -378,7 +378,7 @@ VALUES(
     '4th St.',
     '8006604287'
 );
-COMMIT;
+
 INSERT INTO station VALUES(
     STATION_UID_SEQ.nextval,
     'Columbus Union Station',
@@ -387,7 +387,7 @@ INSERT INTO station VALUES(
     'N. High St.',
     '6142629056'
 );
-COMMIT;
+
 INSERT INTO station VALUES(
     STATION_UID_SEQ.nextval,
     'Peachtree Station',
@@ -396,7 +396,7 @@ INSERT INTO station VALUES(
     'Peachtree Rd. NW',
     '8008727245'
 );
-COMMIT;
+
 
 INSERT INTO operator VALUES(
     OPERATOR_UID_SEQ.nextval,
@@ -406,7 +406,7 @@ INSERT INTO operator VALUES(
     'tpotter85@gmail.com',
     '9035101352'
 );
-COMMIT;
+
 INSERT INTO operator VALUES(
     OPERATOR_UID_SEQ.nextval,
     'Noah',
@@ -415,7 +415,7 @@ INSERT INTO operator VALUES(
     'bradynoah95@outlook.com',
     '5174179638'
 );
-COMMIT;
+
 INSERT INTO operator VALUES(
     OPERATOR_UID_SEQ.nextval,
     'Stephen',
@@ -424,7 +424,7 @@ INSERT INTO operator VALUES(
     'long003@yahoo.com',
     '7243799580'
 );
-COMMIT;
+
 INSERT INTO operator VALUES(
     OPERATOR_UID_SEQ.nextval,
     'John',
@@ -433,7 +433,7 @@ INSERT INTO operator VALUES(
     'jharris74@gmail.com',
     '3022243085'
 );
-COMMIT;
+
 INSERT INTO operator VALUES(
     OPERATOR_UID_SEQ.nextval,
     'Stewart',
@@ -442,7 +442,7 @@ INSERT INTO operator VALUES(
     'stewconnor1980@yahoo.com',
     '2603766308'
 );
-COMMIT;
+
 
 INSERT INTO passenger VALUES (
     PASSENGER_UID_SEQ.nextval,
@@ -453,7 +453,7 @@ INSERT INTO passenger VALUES (
     460,
     5
 );
-COMMIT;
+
 
 INSERT INTO passenger VALUES (
     PASSENGER_UID_SEQ.nextval,
@@ -464,7 +464,7 @@ INSERT INTO passenger VALUES (
     895,
     3
 );
-COMMIT;
+
 
 INSERT INTO passenger VALUES (
     PASSENGER_UID_SEQ.nextval,
@@ -475,7 +475,7 @@ INSERT INTO passenger VALUES (
     2000,
     2
 );
-COMMIT;
+
 
 INSERT INTO passenger VALUES (
     PASSENGER_UID_SEQ.nextval,
@@ -486,7 +486,7 @@ INSERT INTO passenger VALUES (
     230,
     3
 );
-COMMIT;
+
 
 INSERT INTO passenger VALUES (
     PASSENGER_UID_SEQ.nextval,
@@ -497,40 +497,40 @@ INSERT INTO passenger VALUES (
     0,
     NULL
 );
-COMMIT;
+
 
 INSERT INTO route VALUES (
     ROUTE_UID_SEQ.nextval,
     4,
     2
 );
-COMMIT;
+
 
 INSERT INTO route VALUES (
     ROUTE_UID_SEQ.nextval,
     2,
     4
 );
-COMMIT;
+
 
 INSERT INTO route VALUES (
     ROUTE_UID_SEQ.nextval,
     3,
     5
 );
-COMMIT;
+
 INSERT INTO route VALUES (
     ROUTE_UID_SEQ.nextval,
     5,
     3
 );
-COMMIT;
+
 INSERT INTO route VALUES (
     ROUTE_UID_SEQ.nextval,
     5,
     4
 );
-COMMIT;
+
 
 INSERT INTO schedule VALUES (
     SCHEDULE_UID_SEQ.nextval,
@@ -540,7 +540,7 @@ INSERT INTO schedule VALUES (
     2,
     1
 );
-COMMIT;
+
 
 INSERT INTO schedule VALUES (
     SCHEDULE_UID_SEQ.nextval,
@@ -550,7 +550,7 @@ INSERT INTO schedule VALUES (
     1,
     3
 );
-COMMIT;
+
 
 INSERT INTO schedule VALUES (
     SCHEDULE_UID_SEQ.nextval,
@@ -560,7 +560,7 @@ INSERT INTO schedule VALUES (
     2,
     1
 );
-COMMIT;
+
 
 INSERT INTO schedule VALUES (
     SCHEDULE_UID_SEQ.nextval,
@@ -570,7 +570,7 @@ INSERT INTO schedule VALUES (
     5,
     5
 );
-COMMIT;
+
 
 INSERT INTO schedule VALUES (
     SCHEDULE_UID_SEQ.nextval,
@@ -580,35 +580,36 @@ INSERT INTO schedule VALUES (
     4,
     2
 );
-COMMIT;
+
 
 INSERT INTO booking VALUES(
 	BOOKING_UID_SEQ.nextval,
 	1,
 	4
 );
-COMMIT;
+
 INSERT INTO booking VALUES(
 	BOOKING_UID_SEQ.nextval,
 	1,
 	4
 );
-COMMIT;
+
 INSERT INTO booking VALUES(
 	BOOKING_UID_SEQ.nextval,
 	3,
 	5
 );
-COMMIT;
+
 INSERT INTO booking VALUES(
 	BOOKING_UID_SEQ.nextval,
 	2,
 	4
 );
-COMMIT;
+
 INSERT INTO booking VALUES(
 	BOOKING_UID_SEQ.nextval,
 	2,
 	3
 );
+
 COMMIT;
