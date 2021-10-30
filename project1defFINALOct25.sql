@@ -584,7 +584,7 @@ INSERT INTO schedule VALUES (
     2,
     4,
     4,
-    2
+    2,
     68.50
 );
 
