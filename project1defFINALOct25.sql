@@ -150,7 +150,7 @@ CREATE TABLE subscription (
     subscriptionfees           NUMBER(4, 2)
         CONSTRAINT subscription_fees_nn NOT NULL,
     subscriptionpointsfree     NUMBER(5)
-        CONSTRAINT subscription_points_booking_nn NOT NULL
+        CONSTRAINT subscription_points_free_nn NOT NULL
 );
 
 -- Create timing table 
@@ -231,7 +231,9 @@ CREATE TABLE booking (
     passengerid   NUMBER(10) 
 		CONSTRAINT booking_passenger_id NOT NULL,
     scheduleid    NUMBER(10) 
-		CONSTRAINT booking_schedule_id NOT NULL
+		CONSTRAINT booking_schedule_id NOT NULL,
+    pointsused BOOLEAN
+	        CONSTRAINT booking_points_used_df DEFAULT ‘False’
 );
 
 -- Reference constraints indicate foreign key relations
