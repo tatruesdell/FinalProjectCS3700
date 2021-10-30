@@ -215,6 +215,8 @@ CREATE TABLE schedule (
 		CONSTRAINT schedule_route_id_nn NOT NULL,
     timingid          NUMBER(10) 
 		CONSTRAINT schedule_timing_id_nn NOT NULL,
+    ticketprice       NUMBER(4, 2)
+		CONSTRAINT schedule_ticket_price_nn NOT NULL,
     CONSTRAINT operator_timing_date_uk UNIQUE(operatorid, timingid, schedulestartdate),
     CONSTRAINT train_timing_date_uk UNIQUE(trainid, timingid, schedulestartdate)
 );
@@ -538,7 +540,8 @@ INSERT INTO schedule VALUES (
     2,
     5,
     2,
-    1
+    1,
+    25.75
 );
 
 
@@ -548,7 +551,8 @@ INSERT INTO schedule VALUES (
     4,
     2,
     1,
-    3
+    3,
+    55.00
 );
 
 
@@ -558,7 +562,8 @@ INSERT INTO schedule VALUES (
     3,
     3,
     2,
-    1
+    1,
+    75.50
 );
 
 
@@ -568,7 +573,8 @@ INSERT INTO schedule VALUES (
     5,
     5,
     5,
-    5
+    5,
+    45.25
 );
 
 
@@ -579,6 +585,7 @@ INSERT INTO schedule VALUES (
     4,
     4,
     2
+    68.50
 );
 
 
