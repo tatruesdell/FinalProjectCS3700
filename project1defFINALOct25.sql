@@ -232,8 +232,7 @@ CREATE TABLE booking (
 		CONSTRAINT booking_passenger_id NOT NULL,
     scheduleid    NUMBER(10) 
 		CONSTRAINT booking_schedule_id NOT NULL,
-    pointsused BOOLEAN
-	        CONSTRAINT booking_points_used_df DEFAULT ‘False’
+    pointsused CHAR(1) CONSTRAINT points_used_cc  CHECK (pointsused IN ('T', 'F'))
 );
 
 -- Reference constraints indicate foreign key relations
@@ -594,31 +593,36 @@ INSERT INTO schedule VALUES (
 INSERT INTO booking VALUES(
 	BOOKING_UID_SEQ.nextval,
 	1,
-	4
+	4,
+    	'T'
 );
 
 INSERT INTO booking VALUES(
 	BOOKING_UID_SEQ.nextval,
 	1,
-	4
+	4,
+    	'F'
 );
 
 INSERT INTO booking VALUES(
 	BOOKING_UID_SEQ.nextval,
 	3,
-	5
+	5,
+    	'F'
 );
 
 INSERT INTO booking VALUES(
 	BOOKING_UID_SEQ.nextval,
 	2,
-	4
+	4,
+    	'F'
 );
 
 INSERT INTO booking VALUES(
 	BOOKING_UID_SEQ.nextval,
 	2,
-	3
+	3,
+    	'T'
 );
 
 COMMIT;
