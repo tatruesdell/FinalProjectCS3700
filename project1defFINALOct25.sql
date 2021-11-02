@@ -626,3 +626,5 @@ INSERT INTO booking VALUES(
 );
 
 COMMIT;
+
+SELECT stationname FROM booking NATURAL JOIN schedule NATURAL JOIN route JOIN station ON route.departurestationid = station.stationid WHERE bookingnumber=3;
