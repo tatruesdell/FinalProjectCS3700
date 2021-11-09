@@ -632,7 +632,7 @@ SELECT stationname FROM booking NATURAL JOIN schedule NATURAL JOIN route JOIN st
 SELECT stationcity AS "Departure City" FROM schedule 
     NATURAL JOIN route 
     JOIN station ON route.departurestationid = station.stationid
-    WHERE schedule.trainid = (SELECT trainid FROM train WHERE trainnoofseats = 485) 
+    WHERE schedule.trainid = (SELECT trainid FROM train WHERE trainnoofseats > 400 AND trainnoofseats < 500) 
     AND schedule.operatorid = (SELECT operatorid FROM operator WHERE operatorlastname = 'Connor');
     
     
