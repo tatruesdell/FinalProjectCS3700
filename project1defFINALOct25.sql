@@ -628,3 +628,11 @@ INSERT INTO booking VALUES(
 COMMIT;
 
 SELECT stationname FROM booking NATURAL JOIN schedule NATURAL JOIN route JOIN station ON route.departurestationid = station.stationid WHERE bookingnumber=3;
+
+SELECT stationcity AS "Departure City" FROM schedule 
+    NATURAL JOIN route 
+    JOIN station ON route.departurestationid = station.stationid
+    WHERE schedule.trainid = (SELECT trainid FROM train WHERE trainnoofseats = 485) 
+    AND schedule.operatorid = (SELECT operatorid FROM operator WHERE operatorlastname = 'Connor');
+    
+    
