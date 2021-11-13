@@ -634,5 +634,11 @@ SELECT stationcity AS "Departure City" FROM schedule
     JOIN station ON route.departurestationid = station.stationid
     WHERE schedule.trainid = (SELECT trainid FROM train WHERE trainnoofseats > 400 AND trainnoofseats < 500) 
     AND schedule.operatorid = (SELECT operatorid FROM operator WHERE operatorlastname = 'Connor');
-    
-    
+
+CREATE MATERIALIZED VIEW SubscriptionPointUsersDetails AS
+    SELECT scheduleid, schedulestartdate, ticketprice, passengerfirstname, passengerlastname, subscriptionpoints, subscriptionmembershiprank  
+    FROM SCHEDULE 
+    NATURAL JOIN booking 
+    NATURAL JOIN passenger 
+    NATURAL JOIN subscription 
+    WHERE booking.pointsused = 'T';
