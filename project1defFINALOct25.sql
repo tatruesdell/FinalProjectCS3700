@@ -181,7 +181,7 @@ CREATE TABLE passenger (
     passengerphonenumber NUMBER(10),
     passengeremail       VARCHAR2(30 CHAR)
         CONSTRAINT passenger_email_nn NOT NULL, 
-    subscriptionpoints   NUMBER(4),
+    subscriptionpoints   NUMBER(5),
     subscriptionid       NUMBER(10)
 );
 
