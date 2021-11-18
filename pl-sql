@@ -19,6 +19,8 @@ BEGIN
         FROM schedule
         WHERE scheduleid = schedule_id;
         ticket_points := ticket_price * 10;
+    DBMS_OUTPUT.PUT_LINE('Your current applicable points: ' || current_points);
+    DBMS_OUTPUT.PUT_LINE('Points needed to buy the ticket: ' || ticket_points);
     IF points_used = 'T' AND current_points >= ticket_points THEN
         UPDATE passenger
         SET subscriptionpoints = current_points - ticket_points
