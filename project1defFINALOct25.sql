@@ -54,6 +54,8 @@ DROP SEQUENCE train_uid_seq;
 -- DROP sequence for train IDs
 -- Drop sequences to prevent duplicates 
 
+DROP MATERIALIZED VIEW subscriptionpointusersdetails;
+
 CREATE SEQUENCE booking_uid_seq START WITH 1 INCREMENT BY 1 MAXVALUE 9999999999 MINVALUE 1 NOCACHE;
 -- Create sequence for booking IDs
 
