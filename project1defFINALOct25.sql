@@ -644,3 +644,43 @@ CREATE MATERIALIZED VIEW SubscriptionPointUsersDetails AS
     NATURAL JOIN passenger 
     NATURAL JOIN subscription 
     WHERE booking.pointsused = 'T';
+
+DECLARE 
+    pass_id booking.passengerid%type;
+    points_used booking.pointsused%type;
+    ticket_price schedule.ticketprice%type;
+    ticket_points passenger.subscriptionpoints%type;
+    schedule_id booking.scheduleid%type;
+    current_points passenger.subscriptionpoints%type;
+BEGIN
+    SELECT passengerid, pointsused, scheduleid
+        INTO pass_id, points_used, schedule_id
+        FROM booking
+        WHERE bookingnumber=5;
+    SELECT subscriptionpoints
+        INTO current_points
+        FROM passenger
+        WHERE passengerid = pass_id;
+    SELECT ticketprice
+        INTO ticket_price
+        FROM schedule
+        WHERE scheduleid = schedule_id;
+        ticket_points := ticket_price * 10;
+    DBMS_OUTPUT.PUT_LINE('Your current applicable points: ' || current_points);
+    DBMS_OUTPUT.PUT_LINE('Points needed to buy the ticket: ' || ticket_points);
+    IF points_used = 'T' AND current_points >= ticket_points THEN
+        UPDATE passenger
+        SET subscriptionpoints = current_points - ticket_points
+        WHERE passengerid = pass_id;
+        SELECT subscriptionpoints
+        INTO current_points
+        FROM passenger
+        WHERE passengerid = pass_id;
+        DBMS_OUTPUT.PUT_LINE('You have successfully used your points to purchase this ticket. Remaining point: ' || current_points);
+    ELSIF current_points < ticket_points THEN
+        DBMS_OUTPUT.PUT_LINE('You do not have enough points! This purchase cannot be completed using points, you will be billed.');
+        UPDATE booking
+        SET pointsused = 'F'
+        WHERE bookingnumber = 5;
+    END IF;
+END;
