@@ -676,7 +676,7 @@ BEGIN
         INTO current_points
         FROM passenger
         WHERE passengerid = pass_id;
-        DBMS_OUTPUT.PUT_LINE('You have successfully used your points to purchase this ticket. Remaining point: ' || current_points);
+        DBMS_OUTPUT.PUT_LINE('You have successfully used your points to purchase this ticket. Remaining points: ' || current_points);
     ELSIF current_points < ticket_points THEN
         DBMS_OUTPUT.PUT_LINE('You do not have enough points! This purchase cannot be completed using points, you will be billed.');
         UPDATE booking
