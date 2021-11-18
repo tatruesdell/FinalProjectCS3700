@@ -652,23 +652,31 @@ DECLARE
     ticket_points passenger.subscriptionpoints%type;
     schedule_id booking.scheduleid%type;
     current_points passenger.subscriptionpoints%type;
+    pass_first passenger.passengerfirstname%type;
+    sub_id passenger.subscriptionid%type;
+    sub_points subscription.subscriptionpointsfree%type;
+    sub_rank subscription.subscriptionmembershiprank%type;
 BEGIN
     SELECT passengerid, pointsused, scheduleid
         INTO pass_id, points_used, schedule_id
         FROM booking
         WHERE bookingnumber=5;
-    SELECT subscriptionpoints
-        INTO current_points
+    SELECT subscriptionpoints, subscriptionid, passengerfirstname
+        INTO current_points, sub_id, pass_first
         FROM passenger
         WHERE passengerid = pass_id;
+    SELECT subscriptionpointsfree, subscriptionmembershiprank
+        INTO sub_points, sub_rank
+        FROM subscription
+        WHERE subscriptionid = sub_id;
     SELECT ticketprice
         INTO ticket_price
         FROM schedule
         WHERE scheduleid = schedule_id;
         ticket_points := ticket_price * 10;
-    DBMS_OUTPUT.PUT_LINE('Your current applicable points: ' || current_points);
-    DBMS_OUTPUT.PUT_LINE('Points needed to buy the ticket: ' || ticket_points);
-    IF points_used = 'T' AND current_points >= ticket_points THEN
+    DBMS_OUTPUT.PUT_LINE('Hello ' || pass_first || '! Your current applicable points are: ' || current_points);
+    DBMS_OUTPUT.PUT_LINE('Minimum points needed by a ' || sub_rank || ' member to be eligible for a free ticket: ' || sub_points);
+    IF points_used = 'T' AND current_points >= sub_points THEN
         UPDATE passenger
         SET subscriptionpoints = current_points - ticket_points
         WHERE passengerid = pass_id;
