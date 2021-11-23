@@ -248,6 +248,7 @@ ALTER TABLE route ADD CONSTRAINT route_station_fkv2 FOREIGN KEY (departurestatio
 ALTER TABLE route ADD CONSTRAINT route_station_fk FOREIGN KEY (arrivalstationid) REFERENCES station(stationid);
 ALTER TABLE passenger ADD CONSTRAINT passenger_subscription_fk FOREIGN KEY (subscriptionid) REFERENCES subscription(subscriptionid);
 
+-- Insert values into timing table 
 INSERT INTO timing VALUES (
     TIMING_UID_SEQ.nextval,
     TO_DATE('09:30:00 AM','HH:MI:SS AM'),
@@ -278,7 +279,7 @@ INSERT INTO timing VALUES (
     TO_DATE('10:30:00 PM','HH:MI:SS PM')
 );
 
-
+-- Insert values into subscription table 
 INSERT INTO subscription VALUES (
     SUBSCRIPTION_UID_SEQ.nextval,
     'Base Level Membership: at least 5 trips required',
@@ -319,7 +320,7 @@ INSERT INTO subscription VALUES (
     2000
 );
 
-
+-- Insert values into train table 
 INSERT INTO train VALUES(
     TRAIN_UID_SEQ.nextval,
     'Golden Arrow',
@@ -355,7 +356,7 @@ INSERT INTO train VALUES(
     485
 );
 
-
+-- Insert values into station table 
 INSERT INTO station VALUES(
     STATION_UID_SEQ.nextval,
     'Tulsa station',
@@ -402,7 +403,7 @@ INSERT INTO station VALUES(
     '8008727245'
 );
 
-
+-- Insert values into operator table 
 INSERT INTO operator VALUES(
     OPERATOR_UID_SEQ.nextval,
     'Trevor',
@@ -448,7 +449,7 @@ INSERT INTO operator VALUES(
     '2603766308'
 );
 
-
+-- Insert values into passenger table 
 INSERT INTO passenger VALUES (
     PASSENGER_UID_SEQ.nextval,
     'Joe',
@@ -503,7 +504,7 @@ INSERT INTO passenger VALUES (
     NULL
 );
 
-
+-- Insert values into route table 
 INSERT INTO route VALUES (
     ROUTE_UID_SEQ.nextval,
     4,
@@ -536,7 +537,7 @@ INSERT INTO route VALUES (
     4
 );
 
-
+-- Insert values into schedule table 
 INSERT INTO schedule VALUES (
     SCHEDULE_UID_SEQ.nextval,
     TO_DATE('08/10/2022', 'MM/DD/YYYY'),
@@ -591,7 +592,7 @@ INSERT INTO schedule VALUES (
     68.50
 );
 
-
+-- Insert values into booking table 
 INSERT INTO booking VALUES(
 	BOOKING_UID_SEQ.nextval,
 	1,
@@ -627,16 +628,20 @@ INSERT INTO booking VALUES(
     	'T'
 );
 
+-- Commit changes to tables 
 COMMIT;
 
+-- Display station name for bookingnumber = 3
 SELECT stationname FROM booking NATURAL JOIN schedule NATURAL JOIN route JOIN station ON route.arrivalstationid = station.stationid WHERE bookingnumber=3;
 
+-- Get departure station and display with alias
 SELECT stationcity AS "Departure City" FROM schedule 
     NATURAL JOIN route 
     JOIN station ON route.departurestationid = station.stationid
     WHERE schedule.trainid = (SELECT trainid FROM train WHERE trainnoofseats > 400 AND trainnoofseats < 500) 
     AND schedule.operatorid = (SELECT operatorid FROM operator WHERE operatorlastname = 'Connor');
 
+-- Materialize view of subscription details 
 CREATE MATERIALIZED VIEW SubscriptionPointUsersDetails AS
     SELECT scheduleid, schedulestartdate, ticketprice, passengerfirstname, passengerlastname, subscriptionpoints, subscriptionmembershiprank  
     FROM SCHEDULE 
@@ -645,6 +650,7 @@ CREATE MATERIALIZED VIEW SubscriptionPointUsersDetails AS
     NATURAL JOIN subscription 
     WHERE booking.pointsused = 'T';
 
+-- Declare variables 
 DECLARE 
     pass_id booking.passengerid%type;
     points_used booking.pointsused%type;
@@ -656,6 +662,7 @@ DECLARE
     sub_id passenger.subscriptionid%type;
     sub_points subscription.subscriptionpointsfree%type;
     sub_rank subscription.subscriptionmembershiprank%type;
+-- Begin transaction statements 
 BEGIN
     SELECT passengerid, pointsused, scheduleid
         INTO pass_id, points_used, schedule_id
@@ -691,4 +698,5 @@ BEGIN
         SET pointsused = 'F'
         WHERE bookingnumber = 5;
     END IF;
-END;
+-- End transaction statements 
+END; 
