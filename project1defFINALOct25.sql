@@ -689,7 +689,7 @@ BEGIN
     END IF;
 -- End transaction statements 
 END; 
-
+/
 -- Display number of bookings for passengers (Part V. #3)
 SELECT passengerid, passengerfirstname, passengerlastname, COUNT(*) AS "Number of Bookings" FROM booking JOIN passenger USING(passengerid) GROUP BY passengerid, passengerlastname, passengerfirstname;
 
