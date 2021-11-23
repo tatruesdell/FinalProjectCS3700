@@ -89,6 +89,7 @@ CREATE SEQUENCE train_uid_seq START WITH 1 INCREMENT BY 1 MAXVALUE 9999999999 MI
 -- PRIMARY KEY CONSTRAINT is an integrity constraint defining the 
     -- unique identifier for each record in the table
 -- NOT NULL constraints require data for arguments upon record insertion
+-- Beginning of Part III (Generating tables)
 CREATE TABLE train (
     trainid        NUMBER(10)
         CONSTRAINT train_pk PRIMARY KEY,
@@ -247,7 +248,9 @@ ALTER TABLE schedule ADD CONSTRAINT schedule_operator_fk FOREIGN KEY (operatorid
 ALTER TABLE route ADD CONSTRAINT route_station_fkv2 FOREIGN KEY (departurestationid) REFERENCES station(stationid);
 ALTER TABLE route ADD CONSTRAINT route_station_fk FOREIGN KEY (arrivalstationid) REFERENCES station(stationid);
 ALTER TABLE passenger ADD CONSTRAINT passenger_subscription_fk FOREIGN KEY (subscriptionid) REFERENCES subscription(subscriptionid);
+-- End of Part III
 
+-- Beginning of Part IV (Adding records to each table)
 -- Insert values into timing table 
 INSERT INTO timing VALUES (
     TIMING_UID_SEQ.nextval,
@@ -627,29 +630,15 @@ INSERT INTO booking VALUES(
 	3,
     	'T'
 );
-
+-- End of Part IV
 -- Commit changes to tables 
 COMMIT;
 
--- Display station name for bookingnumber = 3
+-- Beginning of Part V (Queries, PL/SQL, Materialied View)
+-- Display station name for bookingnumber = 3 (Part V. #1)
 SELECT stationname FROM booking NATURAL JOIN schedule NATURAL JOIN route JOIN station ON route.arrivalstationid = station.stationid WHERE bookingnumber=3;
 
--- Get departure station and display with alias
-SELECT stationcity AS "Departure City" FROM schedule 
-    NATURAL JOIN route 
-    JOIN station ON route.departurestationid = station.stationid
-    WHERE schedule.trainid = (SELECT trainid FROM train WHERE trainnoofseats > 400 AND trainnoofseats < 500) 
-    AND schedule.operatorid = (SELECT operatorid FROM operator WHERE operatorlastname = 'Connor');
-
--- Materialize view of subscription details 
-CREATE MATERIALIZED VIEW SubscriptionPointUsersDetails AS
-    SELECT scheduleid, schedulestartdate, ticketprice, passengerfirstname, passengerlastname, subscriptionpoints, subscriptionmembershiprank  
-    FROM SCHEDULE 
-    NATURAL JOIN booking 
-    NATURAL JOIN passenger 
-    NATURAL JOIN subscription 
-    WHERE booking.pointsused = 'T';
-
+-- If passenger makes a booking using their points, check for eligibility, and subtract points accordingly. Otherwise, output error message. (Part V. #2)
 -- Declare variables 
 DECLARE 
     pass_id booking.passengerid%type;
@@ -700,3 +689,22 @@ BEGIN
     END IF;
 -- End transaction statements 
 END; 
+
+-- Display number of bookings for passengers (Part V. #3)
+SELECT passengerid, passengerfirstname, passengerlastname, COUNT(*) AS "Number of Bookings" FROM booking JOIN passenger USING(passengerid) GROUP BY passengerid, passengerlastname, passengerfirstname;
+
+-- Materialize view of subscription details (Part V. #4)
+CREATE MATERIALIZED VIEW SubscriptionPointUsersDetails AS
+    SELECT scheduleid, schedulestartdate, ticketprice, passengerfirstname, passengerlastname, subscriptionpoints, subscriptionmembershiprank  
+    FROM SCHEDULE 
+    NATURAL JOIN booking 
+    NATURAL JOIN passenger 
+    NATURAL JOIN subscription 
+    WHERE booking.pointsused = 'T';
+
+-- Get departure city and display with alias where 400 < number of seats on train < 500 and operator's last name is Connor (Part V. #5)
+SELECT stationcity AS "Departure City" FROM schedule 
+    NATURAL JOIN route 
+    JOIN station ON route.departurestationid = station.stationid
+    WHERE schedule.trainid = (SELECT trainid FROM train WHERE trainnoofseats > 400 AND trainnoofseats < 500) 
+    AND schedule.operatorid = (SELECT operatorid FROM operator WHERE operatorlastname = 'Connor');
