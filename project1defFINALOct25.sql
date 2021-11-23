@@ -1,3 +1,5 @@
+-- Final Project Team 19: Amina Haq & Trent Truesdell
+
 DROP TABLE booking CASCADE CONSTRAINTS;
 -- Drop booking table and constraints 
 
