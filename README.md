@@ -33,4 +33,5 @@ This database will have the following relationships:
 6.	A train can cater to many schedules
 7.	A route can have different starting and ending train stations
 8.	A timing can have different schedules
+
 This project can also be expanded and redesigned for other transportation services like buses, airplanes, and taxicabs
