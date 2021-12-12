@@ -1,4 +1,5 @@
 **Project Background**
+
 This project is completed as part of the Final Project for CS3700 Intro to Databases offered at Wright State Univeristy. This project demonstrates the implementation of a database with at leasst 8 entities and a 3 table inner join.
 Files and usage:
 1. ERDiagram-EngineeringNotation.png: the ER diagram for the database detailing all entities, attributes, keys, and relations with modality and cardinality. It was generated using Oracle Data Modeler.
@@ -7,6 +8,7 @@ Files and usage:
 4. main.sql: the sql code that contains the Data Definition Language (DDL) and Data Manipulation Language (DML) for the database. The DDL was generated using Oracle Data Modeler and tested using Oracle SQL Developer.
 
 **Overview of the Project**
+
 ![Asset 2RAILSOL](https://user-images.githubusercontent.com/43413025/145717650-1eadc806-05c1-430c-a18f-28f770a84fc0.png)
 
 Railroad Solutions is a project that provides database functionality to railway stations so that they can easily manage data pertaining to trains, scheduling, and other operational needs. This database project is catered towards a Railway Management System which can be employed by public transport railway companies to keep track of their passengers and train schedules. It details the different categories which data can be divided into and the relationship between those categories. 
