@@ -3,8 +3,8 @@
 This project is completed as part of the Final Project for CS3700 Intro to Databases offered at Wright State Univeristy. This project demonstrates the implementation of a database with at leasst 8 entities and a 3 table inner join.
 Files and usage:
 1. ERDiagram-EngineeringNotation.png: the ER diagram for the database detailing all entities, attributes, keys, and relations with modality and cardinality. It was generated using Oracle Data Modeler.
-2. DataDictionary:
-3. RelationalSchema:
+2. DataDictionary: a file containing definitions for each attribute in the database
+3. RelationalSchema: This file contains the relational schema for the database in order of table levels, constraints, and any sequences used for primary keys.
 4. main.sql: the sql code that contains the Data Definition Language (DDL) and Data Manipulation Language (DML) for the database. The DDL was generated using Oracle Data Modeler and tested using Oracle SQL Developer.
 
 **Overview of the Project**
