@@ -5,7 +5,7 @@ Files and usage:
 1. ERDiagram-EngineeringNotation.png: the ER diagram for the database detailing all entities, attributes, keys, and relations with modality and cardinality. It was generated using Oracle Data Modeler.
 2. DataDictionary: a file containing definitions for each attribute in the database
 3. RelationalSchema: This file contains the relational schema for the database in order of table levels, constraints, and any sequences used for primary keys.
-4. main.sql: the sql code that contains the Data Definition Language (DDL) and Data Manipulation Language (DML) for the database. The DDL was generated using Oracle Data Modeler and tested using Oracle SQL Developer.
+4. main.sql: the sql code that contains the Data Definition Language (DDL) and Data Manipulation Language (DML) for the database. The DDL was generated using Oracle Data Modeler and tested using Oracle SQL Developer. The DML demonstrates a query with a 3 table inner join with a restriction, a PL/SQL to automate a task, a statistical function and a single row function, a materialized view, and a nested subquery.
 
 **Overview of the Project**
 
