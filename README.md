@@ -25,7 +25,7 @@ The entities in this database are:
 9.	Subscription: Holds records describing the subscription and its fees
 
 This database will have the following relationships:
-1.	Many passengers can subscribe to the same subscription type
+1.	A subscription can have many or no passenger subscribed to it
 2.	A train operator can drive many different schedules
 3.	A passenger can make more than one booking
 4.	A specific schedule can have many different bookings made for it
