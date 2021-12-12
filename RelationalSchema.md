@@ -34,3 +34,15 @@ booking(**bookingNumber**, _passengerID, scheduleID_, pointsUsed)
 >>	route_arrival_departure_cc CHECK(arrivalStationID <> departureStationID) <br />
 >>	points_used_cc  CHECK (pointsused IN ('T', 'F'))
 
+**Sequences**
+> train_uid_seq
+> station_uid_seq
+> operator_uid_seq
+> subscription_uid_seq
+> timing_uid_seq
+> passenger_uid_seq
+> route_uid_seq
+> schedule_uid_seq
+> booking_uid_seq
+
+
