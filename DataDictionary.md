@@ -3,62 +3,61 @@
 _Attribute: Description_
 
 TrainID: Unique identification number for the train
-TrainModel:	Model number of the train
-TrainColor:	Color to identify the train
-TrainNoOfSeats:	Number of seats in the train to keep track of booking
-	
-	
+<br />TrainModel:	Model number of the train
+<br />TrainColor:	Color to identify the train
+<br />TrainNoOfSeats:	Number of seats in the train to keep track of booking
+		
 StationID:	Unique identification number for the train station
-StationName:	Name of the train station
-StationCity:City the train station is located in
-StationState:	State the train station is located in
-StationStreet: Street the train station is located on
-StationPhoneNumber:	Contact information for the train station
+<br />StationName:	Name of the train station
+<br />StationCity:City the train station is located in
+<br />StationState:	State the train station is located in
+<br />StationStreet: Street the train station is located on
+<br />StationPhoneNumber:	Contact information for the train station
 	
 	
 PassengerID: Unique identification number for the passenger
-PassengerFirstName: First name of the passenger
-PassengerLastName: Last name of the passenger
-PassengerEmail: email address of the passenger
-PassengerPhoneNumber: phone number of the passenger
-SubscriptionID: The unique id of the subscription type they are subscribed to
-SubscriptionPoints: Current number of points accumulated
+<br />PassengerFirstName: First name of the passenger
+<br />PassengerLastName: Last name of the passenger
+<br />PassengerEmail: email address of the passenger
+<br />PassengerPhoneNumber: phone number of the passenger
+<br />SubscriptionID: The unique id of the subscription type they are subscribed to
+<br />SubscriptionPoints: Current number of points accumulated
 	
 	
 ScheduleID: Unique identification for the schedule
-OperatorID: the operator that drives for this schedule
-TrainID: the train that will be driven for this schedule
-RouteID: the route for this schedule
-StartDate: The start date for the schedule
-TicketPrice: The price of a ticket for the schedule
+<br />OperatorID: the operator that drives for this schedule
+<br />TrainID: the train that will be driven for this schedule
+<br />RouteID: the route for this schedule
+<br />StartDate: The start date for the schedule
+<br />TicketPrice: The price of a ticket for the schedule
 	
 	
 OperatorID: Unique identification number of the operator
-OperatorFirstName: first name of the operator
-OperatorLastName:	last name of the operator
-OperatorDOB: Operator date of birth
-OperatorPhoneNumber: phone number for the operator
-OperatorEmail: email address of the operator
+<br />OperatorFirstName: first name of the operator
+<br />OperatorLastName:	last name of the operator
+<br />OperatorDOB: Operator date of birth
+<br />OperatorPhoneNumber: phone number for the operator
+<br />OperatorEmail: email address of the operator
 	
 	
 BookingNumber: Unique number for a booking
-PassengerID: the identification of passenger the booking is made for
-ScheduleID: the identification of the schedule the booking is made for
-PointsUsed: T or F character value to keep track of whether the ticket was bought using points or not 
+<br />PassengerID: the identification of passenger the booking is made for
+<br />ScheduleID: the identification of the schedule the booking is made for
+<br />PointsUsed: T or F character value to keep track of whether the ticket was bought using points or not 
 	
 	
 RouteID: Unique identification of the route 
-DepartureStationID: the departure station for the route
-ArrivalStationID: the arrival station for the route
+<br />DepartureStationID: the departure station for the route
+<br />ArrivalStationID: the arrival station for the route
 	
 	
 SubscriptionID: Unique identification number for the subscription
-SubscriptionMembershipRank: Rank of the subscription type (base, bronze, silver, gold, platinum)
-SubscriptionDescription: The description of the subscription
-SubscriptionFees: Fees associated with the subscription
-SubscriptionPointsFree: Points required to redeem for one free booking
+<br />SubscriptionMembershipRank: Rank of the subscription type (base, bronze, silver, gold, platinum)
+<br />SubscriptionDescription: The description of the subscription
+<br />SubscriptionFees: Fees associated with the subscription
+<br />SubscriptionPointsFree: Points required to redeem for one free booking
 	
 	
 TimingID: Unique identification number for the timing
-StartTime: Start time for a schedule
-EndTime: End time for a schedule 
+<br />StartTime: Start time for a schedule
+<br />EndTime: End time for a schedule 
